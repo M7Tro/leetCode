@@ -1,25 +1,18 @@
-#include <iostream>
-#include <vector>
-#include <unordered_map>
-
-using namespace std;
-
-vector<int> twoSum (vector<int>& nums, int target){
-    unordered_map<int, int> numMap;
-    for(int i = 0; i < nums.size(); i++){
-        int remainder = target - nums[i];
-        if(numMap.find(remainder) != numMap.end()){
-            return {numMap[remainder], i};
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        if(x < 0) return false;
+        int numberLength = 1;
+        for(;  numberLength < x; numberLength *= 10);
+        numberLength /= 10;
+        
+        for(; numberLength > 1; numberLength /= 100){
+            cout << x << " " << numberLength << endl;
+            if(x / numberLength != x % 10) return false;
+            x %= numberLength;
+            x /= 10;        
         }
-        numMap[nums[i]] = i;
+        
+        return true;
     }
-    return {};
-}
-
-int main(){
-    vector<int> nums = {1, 2, 6, 7, 8, 9};
-
-    cout << twoSum(nums, 14)[0] << " " << twoSum(nums, 14)[1] << endl;
-
-    return 0;
-}
+};
