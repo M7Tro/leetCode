@@ -41,6 +41,8 @@ string longestCommonPrefix(vector<string>& strs) {
 
 int main() {
     vector<string> testCaseOne = {"flower", "flow", "flight"};
+    vector<string> testCaseTwo = {"dog", "racecar", "car"};
+    
     cout << longestCommonPrefix(testCaseOne) << endl;
 
     return 0;
